@@ -32,5 +32,5 @@ COPY --from=builder /app .
 EXPOSE 8000
 
 # Set the entrypoint command
-#CMD ["apache2-foreground"]
+
 CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
