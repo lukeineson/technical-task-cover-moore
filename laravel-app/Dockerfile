@@ -48,6 +48,7 @@ RUN composer install --no-dev --optimize-autoloader --ignore-platform-reqs
 EXPOSE 8000
 
 # Set the entrypoint command
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=5001"]
+CMD bash -c "composer install && php artisan serve --host 0.0.0.0 --port=5001"
+
 
 
