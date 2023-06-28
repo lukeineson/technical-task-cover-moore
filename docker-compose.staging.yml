@@ -1,0 +1,31 @@
+version: '3'
+services:
+  laravel:
+    build:
+      context: ./laravel-app/
+    ports:
+      - 8002:8000
+    volumes:
+      - ./laravel-app:/var/www/html
+    networks:
+      - stagingnetwork
+  flask: 
+    build:
+      context: ./flask-app/
+    ports:
+      - 5002:5000
+    volumes:
+      - ./flask-app:/app
+    networks:
+      - stagingnetwork
+  react:
+    build:
+      context: ./react-app
+    ports:
+      - 3002:80
+    volumes:
+      - ./react-app:/app
+    networks:
+      - stagingnetwork
+networks:
+  stagingnetwork:
